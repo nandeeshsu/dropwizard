@@ -1,6 +1,0 @@
-helloTemplate: Hello, %s!
-defaultName: Stranger
-redis:
-  #injecting environment variable
-  host: ${MY_REDIS_HOST}
-  port: 80
