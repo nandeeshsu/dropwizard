@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Main-Class: org.example.mn.App
+Implementation-Title: dropwizard-tut1
+Implementation-Version: 1.0-SNAPSHOT
+Implementation-Vendor-Id: org.example.mn
+Build-Time: 2022-03-21T17:26:55+0000
+Built-By: Gradle
+Created-By: Gradle 7.2
+

@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+    id "io.freefair.lombok" version "6.4.1"
+    id "com.github.johnrengelman.shadow" version "7.1.2"
+}
+
+group 'org.example.mn'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'io.dropwizard:dropwizard-core:2.0.28'
+
+    //Dropwizard bundle that enables you to write your config.yaml as a Freemarker template for more advanced config
+    //otherwise it's not needed
+    //implementation 'de.thomaskrille:dropwizard-template-config:1.5.0'
+
+    implementation 'ru.vyarus:dropwizard-guicey:5.4.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        //attributes("Main-Class": "org.example.mn.HelloWorldApp",
+                //"Implementation-Version": archiveVersion.get())
+
+        attributes 'Main-Class': 'org.example.mn.App'
+        attributes 'Implementation-Title': rootProject.name
+        attributes 'Implementation-Version': rootProject.version
+        attributes 'Implementation-Vendor-Id': rootProject.group
+        attributes 'Build-Time': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        attributes 'Built-By': 'Gradle'
+        attributes 'Created-By': 'Gradle ' + gradle.gradleVersion
+    }
+}
+
+shadowJar {
+    mergeServiceFiles()
+}

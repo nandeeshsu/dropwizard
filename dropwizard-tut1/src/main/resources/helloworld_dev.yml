@@ -1,0 +1,5 @@
+helloTemplate: Hello, %s!
+defaultName: Stranger
+redis:
+  host: localhost_dev
+  port: 80
